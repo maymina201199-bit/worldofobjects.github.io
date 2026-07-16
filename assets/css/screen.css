@@ -1,27 +1,111 @@
-*{
-  margin: 2;
+* {
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family:"Compadre";
-  padding: 2px;
+  font-family: "Compadre", sans-serif;
+  padding: 60px;
   font-size: 14px;
   line-height: 1.3;
-
+  color: #000;
+  background: #fff;
 }
 
-h1{
+.site-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1rem;
+  font-weight: normal;
+  padding: 12px 0;
+  border-bottom: 1px solid #000;
+  margin-bottom: 0.5cm;
 }
 
-img{
-  width: -webkit-fill-available;
+.title-en {
+  text-align: left;
 }
 
-
-
+.title-he {
+  text-align: right;
+  direction: rtl;
+}
 .katalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 0.4cm;
+  row-gap: 1.5cm;
+  position: relative;
+}
+
+/* קו שחור דק בין 2 הטורים הראשונים ל־2 הטורים האחרונים */
+.katalog-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #000;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.card {
+  position: relative;
+  background: transparent;
+  display: block;
+  z-index: 2;
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+}
+
+/* הטקסט מעל התמונה */
+.card-content {
+  display: block;
+  color: #000;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+  margin-top: -3.9em;
+  padding-top: 0;
+}
+
+/* התיאור */
+.card-details {
+  display: block;
+  white-space: pre-line;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 14px;
+  line-height: 1.3;
+  overflow: visible;
+  position: relative;
+  z-index: 20;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.card-title {
+  display: none;
 }
